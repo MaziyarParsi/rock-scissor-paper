@@ -14,6 +14,8 @@ const GAME = () => {
   };
   ////////// end of starting the game process///////////////
 
+  ////////// start of real game function ////////////
+
   startGame();
 };
 GAME();
