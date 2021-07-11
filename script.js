@@ -1,7 +1,7 @@
 let firstPlayerScore = 0;
 let secondPlayerScore = 0;
-let secondPlayerHandState = "rock";
-let firstPlayerHandState = "rock";
+let secondPlayerHandState;
+let firstPlayerHandState;
 
 const GAME = () => {
   /////// this is when we click on let's play button///////
@@ -61,7 +61,7 @@ let secondPlayerStart = () => {
 
 /////////////// starting compare hands ////////////////////////
 let compareHands = () => {
-  if (firstPlayerHandState === secondPlayerHandState) {
+  if (firstPlayerHandState == secondPlayerHandState) {
     document.querySelector(".winner").textContent = "it's a tie!";
     return;
   }
@@ -76,24 +76,24 @@ let compareHands = () => {
       return;
     }
   }
-  if (firstPlayerHandState == "paper") {
-    if (secondPlayerHandState == "rock") {
+  if (firstPlayerHandState === "paper") {
+    if (secondPlayerHandState === "rock") {
       document.querySelector(".winner").textContent = "Player 1 wins!";
       firstPlayerScore++;
       return;
     }
-    if (secondPlayerHandState == "scissors") {
+    if (secondPlayerHandState === "scissors") {
       document.querySelector(".winner").textContent = "Player 2 wins!";
       secondPlayerScore++;
       return;
     }
-    if (firstPlayerHandState == "scissors") {
-      if (secondPlayerHandState == "rock") {
+    if (firstPlayerHandState === "scissors") {
+      if (secondPlayerHandState === "rock") {
         document.querySelector(".winner").textContent = "Player 2 wins!";
         secondPlayerScore++;
         return;
       }
-      if (secondPlayerHandState == "paper") {
+      if (secondPlayerHandState === "paper") {
         document.querySelector(".winner").textContent = "Player 1 wins!";
         firstPlayerScore++;
         return;
@@ -101,3 +101,14 @@ let compareHands = () => {
     }
   }
 };
+
+////////////////////// end of compare hands function ////////////////////////
+
+///////////////////// update the players score  ///////////////////////////
+
+let updatePlayersScore = () => {
+  document.getElementById("first_player_score").innerText = firstPlayerScore;
+  document.getElementById("second_player_score").innerText = secondPlayerScore;
+};
+
+///////////////////// end of update the players score  ///////////////////////////

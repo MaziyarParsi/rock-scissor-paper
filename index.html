@@ -31,10 +31,16 @@
           <img id="secondPlayerImage" src="./images/rock.png" alt="rock" />
         </div>
         <div class="options">
-          <button class="firstPlayerStart" onclick="firstPlayerStart()">
+          <button
+            class="firstPlayerStart"
+            onclick="firstPlayerStart() ; updatePlayersScore()"
+          >
             let's GO!
           </button>
-          <button class="secondPlayerStart" onclick="secondPlayerStart()">
+          <button
+            class="secondPlayerStart"
+            onclick="secondPlayerStart() ; updatePlayersScore()"
+          >
             let's GO!
           </button>
         </div>
