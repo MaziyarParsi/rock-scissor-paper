@@ -27,12 +27,16 @@
       <div class="match fadeOut">
         <h2 class="winner"></h2>
         <div class="hands">
-          <img class="firstPlayerImage" src="./images/rock.png" alt="rock" />
-          <img class="secondPlayerImage" src="./images/rock.png" alt="rock" />
+          <img id="firstPlayerImage" src="./images/rock.png" alt="rock" />
+          <img id="secondPlayerImage" src="./images/rock.png" alt="rock" />
         </div>
         <div class="options">
-          <button class="firstPlayerStart">let's GO!</button>
-          <button class="secondPlayerStart">let's GO!</button>
+          <button class="firstPlayerStart" onclick="firstPlayerStart()">
+            let's GO!
+          </button>
+          <button class="secondPlayerStart" onclick="secondPlayerStart()">
+            let's GO!
+          </button>
         </div>
       </div>
     </section>

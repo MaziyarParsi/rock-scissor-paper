@@ -67,7 +67,7 @@ section {
   align-items: center;
   margin: 16px 0px;
 }
-img.firstPlayerImage {
+img#firstPlayerImage {
   transform: rotateY(180deg);
 }
 div.fadeOut {
