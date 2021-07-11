@@ -1,5 +1,7 @@
 let firstPlayerScore = 0;
 let secondPlayerScore = 0;
+let secondPlayerHandState = "rock";
+let firstPlayerHandState = "rock";
 
 const GAME = () => {
   /////// this is when we click on let's play button///////
@@ -24,34 +26,78 @@ GAME();
 
 //////////////// functions when players click on start ////////////
 let firstPlayerStart = () => {
-  let handState = Math.floor(Math.random() * 3);
-  if (handState < 1) {
-    handState = "rock";
+  firstPlayerHandState = Math.floor(Math.random() * 3);
+  if (firstPlayerHandState < 1) {
+    firstPlayerHandState = "rock";
     document.getElementById("firstPlayerImage").src = "./images/rock.png";
   }
-  if (handState < 2) {
-    handState = "scissors";
+  if (firstPlayerHandState < 2) {
+    firstPlayerHandState = "scissors";
     document.getElementById("firstPlayerImage").src = "./images/scissors.png";
   }
-  if (handState < 3) {
-    handState = "paper";
+  if (firstPlayerHandState < 3) {
+    firstPlayerHandState = "paper";
     document.getElementById("firstPlayerImage").src = "./images/paper.png";
   }
+  compareHands();
 };
 let secondPlayerStart = () => {
-  let handState = Math.floor(Math.random() * 3);
-  if (handState < 1) {
-    handState = "rock";
+  secondPlayerHandState = Math.floor(Math.random() * 3);
+  if (secondPlayerHandState < 1) {
+    secondPlayerHandState = "rock";
     document.getElementById("secondPlayerImage").src = "./images/rock.png";
   }
-  if (handState < 2) {
-    handState = "scissors";
+  if (secondPlayerHandState < 2) {
+    secondPlayerHandState = "scissors";
     document.getElementById("secondPlayerImage").src = "./images/scissors.png";
   }
-  if (handState < 3) {
-    handState = "paper";
+  if (secondPlayerHandState < 3) {
+    secondPlayerHandState = "paper";
     document.getElementById("secondPlayerImage").src = "./images/paper.png";
   }
-  console.log(handState);
+  compareHands();
 };
 //////////////// end of functions when players click on start ////////////
+
+/////////////// starting compare hands ////////////////////////
+let compareHands = () => {
+  if (firstPlayerHandState === secondPlayerHandState) {
+    document.querySelector(".winner").textContent = "it's a tie!";
+    return;
+  }
+  if (firstPlayerHandState === "rock") {
+    if (secondPlayerHandState === "paper") {
+      document.querySelector(".winner").textContent = "Player 2 wins!";
+      secondPlayerScore++;
+      return;
+    } else if (secondPlayerHandState === "scissors") {
+      document.querySelector(".winner").textContent = "Player 1 wins!";
+      firstPlayerScore++;
+      return;
+    }
+  }
+  if (firstPlayerHandState == "paper") {
+    if (secondPlayerHandState == "rock") {
+      document.querySelector(".winner").textContent = "Player 1 wins!";
+      firstPlayerScore++;
+      return;
+    }
+    if (secondPlayerHandState == "scissors") {
+      document.querySelector(".winner").textContent = "Player 2 wins!";
+      secondPlayerScore++;
+      return;
+    }
+    if (firstPlayerHandState == "scissors") {
+      if (secondPlayerHandState == "rock") {
+        document.querySelector(".winner").textContent = "Player 2 wins!";
+        secondPlayerScore++;
+        return;
+      }
+      if (secondPlayerHandState == "paper") {
+        document.querySelector(".winner").textContent = "Player 1 wins!";
+        firstPlayerScore++;
+        return;
+      }
+    }
+  }
+};
