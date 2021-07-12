@@ -107,7 +107,7 @@ let compareHands = () => {
       return;
     }
   }
-
+  updatePlayersScore();
   document.getElementsByClassName("resetButton")[0].disabled = false;
 };
 
@@ -128,6 +128,5 @@ let restartGame = () => {
   document.getElementById("secondPlayerImage").src = "./images/rock.png";
   firstPlayerHandState = "";
   secondPlayerHandState = "";
-
-  updatePlayersScore();
+  document.getElementsByClassName("resetButton")[0].disabled = true;
 };
