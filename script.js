@@ -68,50 +68,47 @@ let secondPlayerStart = () => {
 
 /////////////// starting compare hands ////////////////////////
 let compareHands = () => {
-  if (
-    document.getElementsByClassName("secondPlayerStart")[0].disabled &&
-    document.getElementsByClassName("firstPlayerStart")[0].disabled
-  ) {
-    if (firstPlayerHandState == secondPlayerHandState) {
-      document.querySelector(".winner").textContent = "it's a tie!";
+  if (firstPlayerHandState === secondPlayerHandState) {
+    document.querySelector(".winner").textContent = "it's a tie!";
+    return;
+  }
+  if (firstPlayerHandState === "rock") {
+    if (secondPlayerHandState === "paper") {
+      document.querySelector(".winner").textContent = "Player 2 wins!";
+      secondPlayerScore++;
+      return;
+    } else if (secondPlayerHandState === "scissors") {
+      document.querySelector(".winner").textContent = "Player 1 wins!";
+      firstPlayerScore++;
       return;
     }
-    if (firstPlayerHandState === "rock") {
-      if (secondPlayerHandState === "paper") {
-        document.querySelector(".winner").textContent = "Player 2 wins!";
-        secondPlayerScore++;
-        return;
-      } else if (secondPlayerHandState === "scissors") {
-        document.querySelector(".winner").textContent = "Player 1 wins!";
-        firstPlayerScore++;
-        return;
-      }
+  }
+  if (firstPlayerHandState === "paper") {
+    if (secondPlayerHandState === "rock") {
+      document.querySelector(".winner").textContent = "Player 1 wins!";
+      firstPlayerScore++;
+      return;
     }
-    if (firstPlayerHandState === "paper") {
-      if (secondPlayerHandState === "rock") {
-        document.querySelector(".winner").textContent = "Player 1 wins!";
-        firstPlayerScore++;
-        return;
-      }
-      if (secondPlayerHandState === "scissors") {
-        document.querySelector(".winner").textContent = "Player 2 wins!";
-        secondPlayerScore++;
-        return;
-      }
-      if (firstPlayerHandState === "scissors") {
-        if (secondPlayerHandState === "rock") {
-          document.querySelector(".winner").textContent = "Player 2 wins!";
-          secondPlayerScore++;
-          return;
-        }
-        if (secondPlayerHandState === "paper") {
-          document.querySelector(".winner").textContent = "Player 1 wins!";
-          firstPlayerScore++;
-          return;
-        }
-      }
+    if (secondPlayerHandState === "scissors") {
+      document.querySelector(".winner").textContent = "Player 2 wins!";
+      secondPlayerScore++;
+      return;
     }
   }
+  if (firstPlayerHandState === "scissors") {
+    if (secondPlayerHandState === "rock") {
+      document.querySelector(".winner").textContent = "Player 2 wins!";
+      secondPlayerScore++;
+      return;
+    }
+    if (secondPlayerHandState === "paper") {
+      document.querySelector(".winner").textContent = "Player 1 wins!";
+      firstPlayerScore++;
+      return;
+    }
+  }
+
+  document.getElementsByClassName("resetButton")[0].disabled = false;
 };
 
 ////////////////////// end of compare hands function ////////////////////////
@@ -122,15 +119,15 @@ let updatePlayersScore = () => {
   document.getElementById("first_player_score").innerText = firstPlayerScore;
   document.getElementById("second_player_score").innerText = secondPlayerScore;
 };
-
 ///////////////////// end of update the players score  ///////////////////////////
 
 let restartGame = () => {
-  document.getElementById("secondPlayerImage").src = "./images/rock.png";
-  document.getElementById("fisrtPlayerImage").src = "./images/rock.png";
   document.getElementsByClassName("firstPlayerStart")[0].disabled = false;
   document.getElementsByClassName("secondPlayerStart")[0].disabled = false;
+  document.getElementById("firstPlayerImage").src = "./images/rock.png";
+  document.getElementById("secondPlayerImage").src = "./images/rock.png";
   firstPlayerHandState = "";
   secondPlayerHandState = "";
+
   updatePlayersScore();
 };

@@ -47,11 +47,9 @@ section {
   border-radius: 4px;
   cursor: pointer;
 }
-.secondPlayerStart:disabled {
+button:disabled {
   background-color: darkgray;
-}
-.firstPlayerStart:disabled {
-  background-color: darkgray;
+  cursor: default;
 }
 .match {
   width: fit-content;
