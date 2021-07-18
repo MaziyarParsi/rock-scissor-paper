@@ -2,6 +2,9 @@ let firstPlayerScore = 0;
 let secondPlayerScore = 0;
 let secondPlayerHandState = "";
 let firstPlayerHandState = "";
+const rockImage = "./images/rock.png";
+const scissorsImage = "./images/scissors.png";
+const paperImage = "./images/paper.png";
 
 const GAME = () => {
   /////// this is when we click on let's play button///////
@@ -29,17 +32,17 @@ let firstPlayerStart = () => {
   firstPlayerHandState = Math.floor(Math.random() * 3);
   if (firstPlayerHandState < 1) {
     firstPlayerHandState = "rock";
-    document.getElementById("firstPlayerImage").src = "./images/rock.png";
+    document.getElementById("firstPlayerImage").src = rockImage;
     document.getElementsByClassName("firstPlayerStart")[0].disabled = true;
   }
   if (firstPlayerHandState < 2) {
     firstPlayerHandState = "scissors";
-    document.getElementById("firstPlayerImage").src = "./images/scissors.png";
+    document.getElementById("firstPlayerImage").src = scissorsImage;
     document.getElementsByClassName("firstPlayerStart")[0].disabled = true;
   }
   if (firstPlayerHandState < 3) {
     firstPlayerHandState = "paper";
-    document.getElementById("firstPlayerImage").src = "./images/paper.png";
+    document.getElementById("firstPlayerImage").src = paperImage;
     document.getElementsByClassName("firstPlayerStart")[0].disabled = true;
   }
 
@@ -49,17 +52,17 @@ let secondPlayerStart = () => {
   secondPlayerHandState = Math.floor(Math.random() * 3);
   if (secondPlayerHandState < 1) {
     secondPlayerHandState = "rock";
-    document.getElementById("secondPlayerImage").src = "./images/rock.png";
+    document.getElementById("secondPlayerImage").src = rockImage;
     document.getElementsByClassName("secondPlayerStart")[0].disabled = true;
   }
   if (secondPlayerHandState < 2) {
     secondPlayerHandState = "scissors";
-    document.getElementById("secondPlayerImage").src = "./images/scissors.png";
+    document.getElementById("secondPlayerImage").src = scissorsImage;
     document.getElementsByClassName("secondPlayerStart")[0].disabled = true;
   }
   if (secondPlayerHandState < 3) {
     secondPlayerHandState = "paper";
-    document.getElementById("secondPlayerImage").src = "./images/paper.png";
+    document.getElementById("secondPlayerImage").src = paperImage;
     document.getElementsByClassName("secondPlayerStart")[0].disabled = true;
   }
   compareHands();
